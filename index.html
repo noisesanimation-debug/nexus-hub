@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexus Hub</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f4f7fc;
+      color: #172554;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #2458d3;
+    }
+
+    header span {
+      color: #64748b;
+      font-size: .9rem;
+    }
+
+    main {
+      width: min(850px, 92%);
+      margin: auto;
+      padding: 45px 0 65px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 8vw, 4.5rem);
+      margin: 0 0 12px;
+      letter-spacing: -2px;
+    }
+
+    .subtitle {
+      color: #64748b;
+      margin-bottom: 32px;
+    }
+
+    .search {
+      display: flex;
+      gap: 8px;
+      padding: 7px;
+      background: white;
+      border: 1px solid #dbe3f0;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px #1725540c;
+    }
+
+    .search input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: none;
+      padding: 13px;
+      font-size: 1rem;
+      background: transparent;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 19px;
+      background: #2458d3;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1745b0; }
+
+    h2 {
+      text-align: left;
+      font-size: 1.15rem;
+      margin: 38px 0 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 14px;
+    }
+
+    .tile {
+      display: block;
+      text-decoration: none;
+      color: #172554;
+      background: white;
+      padding: 22px 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #17255412;
+    }
+
+    .emoji {
+      font-size: 1.9rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .tile small {
+      display: block;
+      color: #64748b;
+      margin-top: 6px;
+    }
+
+    footer {
+      padding: 22px;
+      text-align: center;
+      color: #64748b;
+      font-size: .85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">◆ Nexus Hub</div>
+    <span>Learn · Explore · Play</span>
+  </header>
+
+  <main>
+    <h1>Nexus Hub</h1>
+    <p class="subtitle">Your world, all in one place.</p>
+
+    <form class="search" id="searchForm">
+      <input
+        id="query"
+        type="search"
+        placeholder="What do you want to find?"
+        aria-label="Search the web"
+        required
+      >
+      <button type="submit">Search</button>
+    </form>
+
+    <h2>📚 Learning</h2>
+    <div class="grid">
+      <a class="tile" href="https://www.khanacademy.org/">
+        <span class="emoji">📐</span>
+        Khan Academy
+        <small>Learn and practice</small>
+      </a>
+      <a class="tile" href="https://www.desmos.com/">
+        <span class="emoji">📊</span>
+        Desmos
+        <small>Explore math</small>
+      </a>
+      <a class="tile" href="https://www.dictionary.com/">
+        <span class="emoji">📖</span>
+        Dictionary
+        <small>Find word meanings</small>
+      </a>
+    </div>
+
+    <h2>🎮 Gaming & Videos</h2>
+    <div class="grid">
+      <a class="tile" href="https://www.roblox.com/">
+        <span class="emoji">🎲</span>
+        Roblox
+        <small>Games and creations</small>
+      </a>
+      <a class="tile" href="https://www.youtube.com/">
+        <span class="emoji">▶️</span>
+        YouTube
+        <small>Videos and guides</small>
+      </a>
+      <a class="tile" href="https://www.minecraft.net/">
+        <span class="emoji">⛏️</span>
+        Minecraft
+        <small>Build and explore</small>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    Nexus Hub · Learn smarter. Explore more.
+  </footer>
+
+  <script>
+    document.getElementById("searchForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+        const query = document.getElementById("query").value.trim();
+
+        if (query) {
+          window.location.href =
+            "https://www.google.com/search?q=" +
+            encodeURIComponent(query);
+        }
+      }
+    );
+  </script>
+</body>
+</html>
